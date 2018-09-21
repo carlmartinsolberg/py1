@@ -1,0 +1,47 @@
+
+
+Build
+oc new-app python~https://github.com/carlmartinsolberg/py1.git --name py1-1
+oc new-app python~/home/ehmusr/py1 --name py1-3
+
+# Look at logs for BuildConfig/BuildConfig
+oc logs -f bc/py1-3
+
+# Edit service
+oc edit svc/py1-3
+
+# Expose Service via Route
+oc expose svc/py1-3
+
+----
+
+flera ontainers i en pod
+
+-----
+#Remote shell to pod
+oc get pods
+oc rsh oc rsh py1-3-1-ssrmd
+-----
+
+Routes
+Taggar/Labels
+- Repository
+Kommunikation mellan containers i samma pod
+Kommunikation mellan containers i olika poddar
+Kommunikation mellan olika projekt
+Secrets
+Databas
+service-accounts
+miljövariabler
+Webhooks / action hooks
+Templates
+Configmaps
+Volumes / persistent Volumes
+Loggning till Graylog
+Prometheus
+1-pod-per-nod
+
+
+ECP områden
+-----------
+Authentication/Authorization
