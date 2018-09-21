@@ -5,9 +5,14 @@ import ldap, json
 app = Flask(__name__)
 api = Api(app)
 
+# From os environment
+ldap_binduser = os.environ.get("LDAP_BINDUSER")
+ldap_binduser = os.environ.get("LDAP_PASSWORD")
+
 connect = ldap.initialize('ldap://sec.localdomain')
 connect.set_option(ldap.OPT_REFERRALS, 0)
-connect.simple_bind_s('CN=Martin Solberg,OU=Employees,OU=Users,OU=SEC,DC=sec,DC=receptpartner,DC=se', 'MI66okavd1!')
+
+connect.simple_bind_s(ldap_binduser, ldap_binduser)
 
 class LDAPsearch(Resource):
     def get(self, sAMAccountName):
