@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api
-import ldap, json
+import ldap, json, os
 
 app = Flask(__name__)
 api = Api(app)
